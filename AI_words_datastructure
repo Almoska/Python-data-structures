@@ -1,0 +1,6 @@
+for p in file2:
+    helper.append(p.strip().split(","))
+    for u,e,s in helper[0]:
+        words[u]=(e,s)
+    helper=[]
+print(words)
