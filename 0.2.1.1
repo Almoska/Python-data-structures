@@ -1,0 +1,164 @@
+import random
+conv=input("Write me your name and how would you like me to be called(your name,my name):")
+
+lis=[]
+lis.append(conv.strip().split(","))
+robot=lis[0][1]
+writer=lis[0][0]
+still=True
+
+last_things=[]
+basic_lines=[]
+
+helper=[]
+helper2=[]
+
+count=0
+basic=open("basic.txt","r")
+
+dic=dict()
+words=dict()
+kind_expressions=[]
+pers=dict()
+
+for o in basic:
+    helper.append(o.strip().split(","))
+for q in helper[0]:
+    basic_lines.append(q)
+helper=[]
+
+def checker(word:str,dictionary:dict()):
+    if word.lower() in dictionary.keys():
+        return 1
+    else:
+        return itemChecker(word,dictionary)
+
+def itemChecker(word:str,dictionary:dict()):
+    for p,q in dictionary.items():
+        for e in q:
+            if e==word:
+                return 1
+    return 0
+
+def word_appender(szo,syn,opp,typ):
+     file=open("szavak.txt","a")
+     file.write(str(szo)+","+str(syn)+","+str(opp)+","+str(typ)+"\n")
+     file.close()
+
+
+
+def wordFinder(helper:list(),output):
+    for o in helper[0]:
+        o.lower()
+        #if checker(o,words)==1:
+            #print(f'I got {o} word.')
+        if checker(o,words)!=1:
+            synonim=""
+            synonim=input(f"I have never heard the {o} word, could you write me a synonym for this word?")
+            if synonim in words:
+                for u in words.keys():
+                    if u==synonim:
+                        helper=[]
+                        helper=[u,words.get(words[u][1],0),words.get(words[u][2],0)]
+                        words[o]=helper
+                        word_appender(o,helper[0],helper[1],helper[2])
+                for s,a,b in words.items():
+                    if s==synonim:
+                        helper=[synonim,a,b]
+                        words[o]=helper
+                        word_appender(o,helper[0],helper[1],helper[2])
+                    if a==synonim:
+                        for c,v,b in words.items():
+                            if v==a:
+                                words[o]=[c,v,t]
+                                word_appender(o,c,v,t)
+            else:
+                request=input("I couldn't find this synonim and word in my dictionary, could you please write an opposite word for this word and a word type:")
+                helper=[]
+                helper.append(request.strip().split(" "))
+                words[o]=[synonim,helper[0][0],helper[0][1]]
+                print("Okayyy, Now I got that.")
+                word_appender(o,synonim,helper[0][0],helper[0][1])
+    print(output)
+def findName(name):
+    try:
+        helper=[]
+        filename=name+".txt"
+        file=open(filename,"r")
+        for z in file:
+            helper.append(z.strip().split(","))
+        #print(helper)
+        for i in helper:
+            dic[i[0]]=i[1:]
+        return dic
+    except:
+        return "wrong"
+def contactCreator(person,infos:list()):
+    first=True
+    filen=person+".txt"
+    ct=open(filen,"w")
+    for i in infos:
+        if first==True:
+            ct.write(i)
+            first=False
+        else:
+            ct.write(","+i)
+    ct.close()
+
+
+helper=[]
+new_file=open("szavak.txt","r")
+helper = []
+
+for line in new_file:
+    row = line.strip().split(",")
+    helper.append(row)
+
+for u, s, o, t in helper:
+    words[u] = [s, o, t]
+dic=findName(writer)
+if dic=="wrong":
+    helper=[]
+    about_me=input("I have never talked to you, please write something about yourself\n")
+    helper.append(about_me.strip().split(" "))
+    wordFinder(helper)
+    helper2=["adjectives"]
+    counter=0
+    for o in helper[0]:
+        if o in words.keys():
+            if words.get(o,0)[2]=="adjective":
+                if helper[0][count-1]!="not" and count!=0:
+                    helper2.append(o)
+                if helper[0][count-1]=="not" and count!=0:
+                    helper2.append(words.get(o,0)[1])
+        if itemChecker(o,words)==1:
+            for r,t,z in words.values():
+                if z=="adjective":
+                    if r==o and helper[0][count-1]!="not" and count!=0:
+                        helper2.append(r)
+                    if r==o and helper[0][count-1]=="not" and count!=0:
+                        helper2.append(t)
+                    if t==o and helper[0][count-1]!="not" and count!=0:
+                        helper2.append(t)
+                    if t==o and helper[0][count-1]=="not" and count!=0:
+                        helper2.append(r)
+        count+=1
+    contactCreator(writer,helper2)
+else:
+    helper2=[]
+    print("I know you")
+    for p,l in dic.items():
+        if p=="adjectives":
+            for o in l:
+                helper2.append(o)
+    print(f'You are a {' and '.join(helper2)} person')
+
+
+#print(helper2)
+helper=[]
+conv=input(basic_lines[random.randint(0,2)])
+helper.append(conv.strip().split(" "))
+wordFinder(helper,"This sounds interesting")
+
+#while still==True:
+    #print("fwef")
