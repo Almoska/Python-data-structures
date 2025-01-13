@@ -14,7 +14,7 @@
 
 
 <h2>Terms of use</h2>
-<p>By using this software, you agree to the following terms:<list><ol>
-<li>You may <b>not</b> claim this software as your own.</li>
+<p>By using this code, you agree to the following terms:<list><ol>
+<li>You may <b>not</b> claim this code as your own.</li>
 <li>Redistribution or modification of the source code is permitted only if proper credit is given to the original author.</li>
 </ol></list></p>
