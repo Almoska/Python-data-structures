@@ -66,10 +66,10 @@ def wordFinder(helper:list(),output):
                         helper.append(u)
                         helper.append(words[u][1])
                         helper.append(words[u][2])
-                        print(words[u])
-                        print(words[u][1])
-                        print(words[u][2])
-                        print(helper)
+                        #print(words[u])
+                        #print(words[u][1])
+                        #print(words[u][2])
+                        #print(helper)
                         words[o]=helper
                         word_appender(o,helper[0],helper[1],helper[2])
                 for s,a,b in words.items():
