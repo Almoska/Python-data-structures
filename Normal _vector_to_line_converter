@@ -1,0 +1,9 @@
+vektor_x=input("Give me the x value of the normal vektor:")
+vektor_y=input("Give me the y value of the normal vektor:")
+
+point_x=input("Give me the x value of the point:")
+point_y=input("Give me the y value of the point:")
+pre="+"
+if int(vektor_y)<0:
+    pre="-"
+print(f"The solution is:{vektor_x}x{pre}{vektor_y}y={int(vektor_x)*int(point_x)+int(vektor_y)*int(point_y)}")
