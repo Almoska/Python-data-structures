@@ -1,6 +1,6 @@
 import random
 conv=input("Write me your name and how would you like me to be called(your name,my name):")
-
+a
 lis=[]
 lis.append(conv.strip().split(","))
 robot=lis[0][1]
