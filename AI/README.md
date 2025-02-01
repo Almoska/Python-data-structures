@@ -1,5 +1,6 @@
 <h1>About this project</h1>
-<p></p>
+<p>This folder includes beta versions of an AI, which by analyzing the user's behaviour and vocabulary will be able to have a meaningful conversation with the user.
+</p>
 <h2>How the AI program works exactly?</h2>
 <p>
   <list><ol><li>After the program has been started, it asks the name of the User and how the User would the AI to be called.</li> 
