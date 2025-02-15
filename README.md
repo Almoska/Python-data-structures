@@ -10,8 +10,8 @@
   </li>
   </ol></list></p>
 
-
-
+<h2>The Math_programs folder</h2>
+<p>In the Math_programs folder there are codes that are linked with mathematical operations and procedures, such as normal vector to line converter.</p>
 
 <h2>Terms of use</h2>
 <p>By using this code, you agree to the following terms:<list><ol>
