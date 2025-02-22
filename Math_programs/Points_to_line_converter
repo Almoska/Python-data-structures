@@ -1,0 +1,25 @@
+print("This program helps You creating a line from two points, which will cross them. You can use this in order to check your solution or simply just for fun.")
+point1=input("Give me the first point(please follow this structure:x,y):")
+point2=input("Give me the first point(please follow this structure:x,y):")
+point1_list=[]
+point2_list=[]
+
+point1_list=point1.strip().split(",")
+point2_list=point2.strip().split(",")
+#print(point2_list)
+direction_vector_x=int(point2_list[0])-int(point1_list[0])
+direction_vector_y=int(point2_list[1])-int(point1_list[1])
+
+normal_vector_x=-(direction_vector_y)
+normal_vector_y=direction_vector_x
+
+print(f"The direction vector of the two points:v({direction_vector_x},{direction_vector_y})")
+print(f"The direction vector of the two points:n({normal_vector_x},{normal_vector_y})")
+
+
+pre="+"
+
+if int(normal_vector_y)<0:
+    pre="-"
+    
+print(f"The line is:{normal_vector_x}x{pre}{normal_vector_y}y={int(normal_vector_x)*int(point2_list[0])+int(normal_vector_y)*int(point2_list[1])}")
