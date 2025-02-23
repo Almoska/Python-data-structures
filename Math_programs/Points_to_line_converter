@@ -1,6 +1,6 @@
 print("This program helps You creating a line from two points, which will cross them. You can use this in order to check your solution or simply just for fun.")
 point1=input("Give me the first point(please follow this structure:x,y):")
-point2=input("Give me the first point(please follow this structure:x,y):")
+point2=input("Give me the second point(please follow this structure:x,y):")
 point1_list=[]
 point2_list=[]
 
